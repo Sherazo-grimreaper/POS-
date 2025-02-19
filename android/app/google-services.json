@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "799087638440",
+    "project_id": "flutter-pos-7d4e2",
+    "storage_bucket": "flutter-pos-7d4e2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:799087638440:android:dbd74963f8ed1938dc4f9d",
+        "android_client_info": {
+          "package_name": "com.flutter.data_visualization"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAut9nZzInBNDvUorZMS7X0czTJJ0rIt8c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
