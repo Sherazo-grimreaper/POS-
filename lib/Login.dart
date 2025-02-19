@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'base_navigation.dart';
+import 'utils/app-constant.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -59,7 +60,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor:AppConstant.appMainColor,
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -72,13 +73,13 @@ class _LoginScreenState extends State<LoginScreen> {
               children: [
                 Container(
                   decoration: BoxDecoration(
-                    color: Colors.purple, // Purple background
+                    color: AppConstant.appSecondaryColor, // Purple background
                     borderRadius: BorderRadius.circular(5), // Rounded shape
                   ),
                   child: IconButton(
                     icon: Icon(
                       Icons.arrow_back,
-                      color: Colors.white, // White icon
+                      color: AppConstant.appSecondaryColor, // White icon
                     ),
                     onPressed: () {
                       Navigator.pop(context); // Navigate to the previous screen
@@ -91,7 +92,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   style: TextStyle(
                     fontSize: 40,
                     fontWeight: FontWeight.bold,
-                    color: Colors.purple,
+                    color: AppConstant.appSecondaryColor,
                   ),
                 ),
               ],
@@ -103,7 +104,7 @@ class _LoginScreenState extends State<LoginScreen> {
               controller: emailController,
               decoration: InputDecoration(
                 labelText: 'Email or Phone Number',
-                labelStyle: TextStyle(color: Colors.grey),
+                labelStyle: TextStyle(color: AppConstant.appSecondaryColor),
                 filled: true,
                 fillColor: Colors.grey[200],
                 border: OutlineInputBorder(
@@ -121,7 +122,7 @@ class _LoginScreenState extends State<LoginScreen> {
               decoration: InputDecoration(
                 labelText: 'Password',
                 hintText: '8 Characters minimum',
-                hintStyle: TextStyle(color: Colors.grey),
+                hintStyle: TextStyle(color: AppConstant.appSecondaryColor),
                 filled: true,
                 fillColor: Colors.grey[200],
                 border: OutlineInputBorder(
@@ -141,18 +142,18 @@ class _LoginScreenState extends State<LoginScreen> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(14),
                     ),
-                    backgroundColor: Colors.purple,
+                    backgroundColor: AppConstant.appMainColor,
                     padding: EdgeInsets.symmetric(vertical: 20),
                   ),
                   onPressed: isLoading ? null : _login,
                   child: isLoading
-                      ? CircularProgressIndicator(color: Colors.white)
+                      ? CircularProgressIndicator(color: AppConstant.appSecondaryColor)
                       : Text(
                           'Login',
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                            color: AppConstant.appSecondaryColor,
                           ),
                         ),
                 ),
@@ -169,7 +170,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Text(
                   'Forgot your password?',
                   style: TextStyle(
-                      color: Colors.purple,
+                      color: AppConstant.appMainColor,
                       decoration: TextDecoration.underline,
                       fontWeight: FontWeight.bold),
                 ),
