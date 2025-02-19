@@ -142,13 +142,7 @@ class _SignupPageState extends State<SignupPage> {
                         borderSide: BorderSide.none),
                   ),
                   keyboardType: TextInputType.phone,
-                  validator: (value) {
-                    if (value == null || value.isEmpty)
-                      return 'Please enter your phone number';
-                    if (!RegExp(r'^[0-9]{10}$').hasMatch(value))
-                      return 'Enter a valid phone number';
-                    return null;
-                  },
+                  
                 ),
                 SizedBox(height: 20),
 

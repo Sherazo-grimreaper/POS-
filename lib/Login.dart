@@ -1,8 +1,61 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-// import 'ProductScreen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'base_navigation.dart';
-class LoginScreen extends StatelessWidget {
+
+class LoginScreen extends StatefulWidget {
+  @override
+  _LoginScreenState createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
+  bool isLoading = false;
+
+  Future<void> _login() async {
+    setState(() {
+      isLoading = true;
+    });
+
+    try {
+      await _auth.signInWithEmailAndPassword(
+        email: emailController.text.trim(),
+        password: passwordController.text.trim(),
+      );
+
+      // Navigate to home screen upon successful login
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => BaseNavigation()),
+      );
+    } on FirebaseAuthException catch (e) {
+      _showErrorDialog(e.message ?? "Invalid email or password.");
+    } finally {
+      setState(() {
+        isLoading = false;
+      });
+    }
+  }
+
+  void _showErrorDialog(String message) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text("Login Failed"),
+        content: Text(message),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text("OK"),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,6 +100,7 @@ class LoginScreen extends StatelessWidget {
 
             // Email or Phone Field
             TextField(
+              controller: emailController,
               decoration: InputDecoration(
                 labelText: 'Email or Phone Number',
                 labelStyle: TextStyle(color: Colors.grey),
@@ -62,6 +116,7 @@ class LoginScreen extends StatelessWidget {
 
             // Password Field
             TextField(
+              controller: passwordController,
               obscureText: true,
               decoration: InputDecoration(
                 labelText: 'Password',
@@ -75,48 +130,7 @@ class LoginScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 20),
-
-            // Verify OTP Field
-            TextField(
-              decoration: InputDecoration(
-                labelText: 'Verify OTP',
-                hintText: 'Enter OTP sent to your phone',
-                hintStyle: TextStyle(color: Colors.grey),
-                filled: true,
-                fillColor: Colors.grey[200],
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: BorderSide.none,
-                ),
-              ),
-            ),
             SizedBox(height: 30),
-
-            Text(
-              'Send an OTP',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
-              ),
-            ),
-            SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                _buildOptionButton('Email', Icons.email),
-                _buildWhatsAppButton(), // Custom WhatsApp button
-              ],
-            ),
-            SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                _buildOptionButton('SMS', Icons.message),
-                _buildOptionButton('Missed call', Icons.call),
-              ],
-            ),
-            SizedBox(height: 80),
 
             // Login Button
             Center(
@@ -128,24 +142,19 @@ class LoginScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(14),
                     ),
                     backgroundColor: Colors.purple,
-                    padding: EdgeInsets.symmetric(
-                        vertical:
-                            30), // Remove horizontal padding for full width
+                    padding: EdgeInsets.symmetric(vertical: 20),
                   ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => BaseNavigation()),
-                    );
-                  },
-                  child: Text(
-                    'Login',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
+                  onPressed: isLoading ? null : _login,
+                  child: isLoading
+                      ? CircularProgressIndicator(color: Colors.white)
+                      : Text(
+                          'Login',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
                 ),
               ),
             ),
@@ -169,61 +178,6 @@ class LoginScreen extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-
-  Widget _buildOptionButton(String text, IconData icon) {
-    return ElevatedButton.icon(
-      style: ElevatedButton.styleFrom(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-      ),
-      onPressed: () {
-        // Handle button click
-      },
-      icon: Icon(icon, color: Colors.purple),
-      label: Text(
-        text,
-        style: TextStyle(color: Colors.purple),
-      ),
-    );
-  }
-
-  // Custom WhatsApp button with SVG icon
-  Widget _buildWhatsAppButton() {
-    return ElevatedButton.icon(
-      style: ElevatedButton.styleFrom(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-      ),
-      onPressed: () {
-        // Handle WhatsApp button click
-      },
-      icon: WhatsAppIcon(iconColor: Colors.purple), // Custom WhatsAppIcon
-      label: Text(
-        'WhatsApp',
-        style: TextStyle(color: Colors.purple),
-      ),
-    );
-  }
-}
-
-class WhatsAppIcon extends StatelessWidget {
-  final Color iconColor;
-
-  WhatsAppIcon({required this.iconColor});
-
-  @override
-  Widget build(BuildContext context) {
-    return SvgPicture.asset(
-      'assets/usama/icons/whatsapp.svg',
-      // color: iconColor, // Dynamically set the icon color
-      width: 30, // Icon width
-      height: 30, // Icon height
     );
   }
 }
