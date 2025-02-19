@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'utils/app-constant.dart';
+
 class SingleProductPage extends StatelessWidget {
   final Map<String, dynamic> product;
 
@@ -9,7 +11,7 @@ class SingleProductPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.purple,
+        backgroundColor: AppConstant.appMainColor,
         title: Text(
           product['title'] ?? 'Product Details',
           style: TextStyle(color: Colors.white),
@@ -47,7 +49,7 @@ class SingleProductPage extends StatelessWidget {
               style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: Colors.purple),
+                  color: AppConstant.appMainColor),
             ),
             SizedBox(height: 16),
             ElevatedButton(
@@ -60,7 +62,7 @@ class SingleProductPage extends StatelessWidget {
                 );
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.purple,
+                backgroundColor: AppConstant.appMainColor,
                 padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),

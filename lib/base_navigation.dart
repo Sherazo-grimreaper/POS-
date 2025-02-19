@@ -6,6 +6,8 @@ import 'ProductScreen.dart';
 import 'Home.dart';
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 
+import 'utils/app-constant.dart';
+
 class BaseNavigation extends StatefulWidget {
   @override
   _BaseNavigationState createState() => _BaseNavigationState();
@@ -74,7 +76,7 @@ class _BaseNavigationState extends State<BaseNavigation> {
         ),
         showBadge: cartCount > 0,
         child: FloatingActionButton(
-          backgroundColor: Colors.purple,
+          backgroundColor: AppConstant.appMainColor,
           onPressed: _navigateToCart,
           child: Icon(Icons.shopping_cart, color: Colors.white),
         ),
@@ -84,7 +86,7 @@ class _BaseNavigationState extends State<BaseNavigation> {
         icons: _iconList,
         activeIndex: _selectedIndex,
         gapLocation: GapLocation.end,
-        activeColor: Colors.purple,
+        activeColor: AppConstant.appMainColor,
         inactiveColor: Colors.grey,
         notchSmoothness: NotchSmoothness.softEdge,
         onTap: _onItemTapped,

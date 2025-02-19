@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'utils/app-constant.dart';
+
 class CustomHeader extends StatelessWidget {
   final String title;
   final VoidCallback? onBackPressed;
@@ -25,7 +27,7 @@ class CustomHeader extends StatelessWidget {
         children: [
           // Menu Icon to open Drawer
           IconButton(
-            icon: Icon(Icons.menu, color: Colors.purple),
+            icon: Icon(Icons.menu, color: AppConstant.appMainColor),
             onPressed: () {
               Scaffold.of(context).openDrawer();
             },
@@ -52,7 +54,7 @@ class CustomHeader extends StatelessWidget {
 
           // Favorite Button
           IconButton(
-            icon: Icon(Icons.favorite_border, color: Colors.purple),
+            icon: Icon(Icons.favorite_border, color: AppConstant.appMainColor),
             onPressed: onFavoritePressed,
           ),
 
@@ -60,7 +62,7 @@ class CustomHeader extends StatelessWidget {
           IconButton(
             icon: Icon(
               isDarkMode ? Icons.dark_mode : Icons.light_mode,
-              color: Colors.purple,
+              color: AppConstant.appMainColor,
             ),
             onPressed: onDarkModeToggled,
           ),

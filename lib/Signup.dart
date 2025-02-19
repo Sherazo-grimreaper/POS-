@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 
+import 'utils/app-constant.dart';
+
 class SignupPage extends StatefulWidget {
   @override
   _SignupPageState createState() => _SignupPageState();
@@ -60,7 +62,7 @@ class _SignupPageState extends State<SignupPage> {
                   children: [
                     Container(
                       decoration: BoxDecoration(
-                        color: Colors.purple,
+                        color: AppConstant.appMainColor,
                         borderRadius: BorderRadius.circular(5),
                       ),
                       child: IconButton(
@@ -74,7 +76,7 @@ class _SignupPageState extends State<SignupPage> {
                       style: TextStyle(
                           fontSize: 40,
                           fontWeight: FontWeight.bold,
-                          color: Colors.purple),
+                          color: AppConstant.appMainColor),
                     ),
                   ],
                 ),
@@ -203,7 +205,7 @@ class _SignupPageState extends State<SignupPage> {
                   child: OutlinedButton(
                     onPressed: _registerUser,
                     style: OutlinedButton.styleFrom(
-                      side: BorderSide(color: Color(0xFF800080), width: 2),
+                      side: BorderSide(color:AppConstant.appMainColor, width: 2),
                       padding: EdgeInsets.symmetric(vertical: 25),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10)),
@@ -214,7 +216,7 @@ class _SignupPageState extends State<SignupPage> {
                       style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
-                          color: Color(0xFF800080)),
+                          color: AppConstant.appMainColor),
                     ),
                   ),
                 ),

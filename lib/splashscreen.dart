@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'Onboardingone.dart';
+import 'utils/app-constant.dart';
 class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,7 @@ class WelcomeScreen extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
-                  color: Colors.purple,
+                  color: AppConstant.appMainColor,
                 ),
               ),
             ),
@@ -78,7 +79,7 @@ class WelcomeScreen extends StatelessWidget {
                     );
                 },
                 style: OutlinedButton.styleFrom(
-                  side: BorderSide(color: Colors.purple),
+                  side: BorderSide(color: AppConstant.appMainColor),
                   backgroundColor: Colors.white,
                   padding: EdgeInsets.symmetric(vertical: 30, horizontal: 50),
                   shape: RoundedRectangleBorder(
@@ -91,7 +92,7 @@ class WelcomeScreen extends StatelessWidget {
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                     
-                    color: Colors.purple,
+                    color: AppConstant.appMainColor,
                   ),
                 ),
               ),

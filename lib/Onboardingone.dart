@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'Signup.dart';
 import 'Login.dart';
+import 'utils/app-constant.dart';
 class Onboardingone extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,7 @@ class Onboardingone extends StatelessWidget {
                 children: [
                   Container(
                     decoration: BoxDecoration(
-                      color: Colors.purple, // Purple background
+                      color: AppConstant.appMainColor, // Purple background
                       borderRadius: BorderRadius.circular(5), // Rounded shape
                     ),
                     child: IconButton(
@@ -37,7 +38,7 @@ class Onboardingone extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 40,
                       fontWeight: FontWeight.bold,
-                      color: Colors.purple,
+                      color: AppConstant.appMainColor,
                     ),
                   ),
                 ],
@@ -80,7 +81,7 @@ class Onboardingone extends StatelessWidget {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFF800080), // Purple background
+                    backgroundColor: AppConstant.appMainColor, // Purple background
                     padding:
                         EdgeInsets.symmetric(vertical: 25), // Increased height
                     shape: RoundedRectangleBorder(
@@ -132,7 +133,7 @@ class Onboardingone extends StatelessWidget {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFF800080), // Purple background
+                    backgroundColor: AppConstant.appMainColor, // Purple background
                     padding:
                         EdgeInsets.symmetric(vertical: 25), // Increased height
                     shape: RoundedRectangleBorder(

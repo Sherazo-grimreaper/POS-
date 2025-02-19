@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 
+import 'utils/app-constant.dart';
+
 class ProfilePage extends StatefulWidget {
   @override
   _ProfilePageState createState() => _ProfilePageState();
@@ -38,7 +40,7 @@ class _ProfilePageState extends State<ProfilePage> {
               child: Row(
                 children: [
                   IconButton(
-                    icon: Icon(Icons.arrow_back, color: Colors.purple),
+                    icon: Icon(Icons.arrow_back, color: AppConstant.appMainColor),
                     onPressed: () => Navigator.pop(context),
                   ),
                   SizedBox(width: 10),
@@ -48,14 +50,14 @@ class _ProfilePageState extends State<ProfilePage> {
                       style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
-                        color: Colors.purple,
+                        color: AppConstant.appMainColor,
                       ),
                     ),
                   ),
                   IconButton(
                     icon: Icon(
                       isDarkMode ? Icons.dark_mode : Icons.light_mode,
-                      color: Colors.purple,
+                      color: AppConstant.appMainColor,
                     ),
                     onPressed: () {
                       setState(() {
@@ -92,7 +94,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             SizedBox(height: 20),
             ListTile(
-              leading: Icon(Icons.info_outline, color: Colors.purple),
+              leading: Icon(Icons.info_outline, color: AppConstant.appMainColor),
               title: Text('Personal Information'),
               trailing: Icon(Icons.arrow_forward_ios),
               onTap: () {
@@ -101,7 +103,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             Divider(),
             ListTile(
-              leading: Icon(Icons.shopping_bag, color: Colors.purple),
+              leading: Icon(Icons.shopping_bag, color: AppConstant.appMainColor),
               title: Text('Order Information'),
               trailing: Icon(Icons.arrow_forward_ios),
               onTap: () {
@@ -110,7 +112,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             Divider(),
             ListTile(
-              leading: Icon(Icons.support_agent, color: Colors.purple),
+              leading: Icon(Icons.support_agent, color: AppConstant.appMainColor),
               title: Text('Customer Support'),
               trailing: Icon(Icons.arrow_forward_ios),
               onTap: () {
@@ -122,7 +124,7 @@ class _ProfilePageState extends State<ProfilePage> {
               title: Text('Dark Mode'),
               secondary: Icon(
                 isDarkMode ? Icons.dark_mode : Icons.light_mode,
-                color: Colors.purple,
+                color: AppConstant.appMainColor,
               ),
               value: isDarkMode,
               onChanged: (value) {

@@ -60,7 +60,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:AppConstant.appMainColor,
+      backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -73,13 +73,13 @@ class _LoginScreenState extends State<LoginScreen> {
               children: [
                 Container(
                   decoration: BoxDecoration(
-                    color: AppConstant.appSecondaryColor, // Purple background
+                    color: AppConstant.appMainColor, // Purple background
                     borderRadius: BorderRadius.circular(5), // Rounded shape
                   ),
                   child: IconButton(
                     icon: Icon(
                       Icons.arrow_back,
-                      color: AppConstant.appSecondaryColor, // White icon
+                      color: Colors.white, // White icon
                     ),
                     onPressed: () {
                       Navigator.pop(context); // Navigate to the previous screen
@@ -92,7 +92,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   style: TextStyle(
                     fontSize: 40,
                     fontWeight: FontWeight.bold,
-                    color: AppConstant.appSecondaryColor,
+                    color: AppConstant.appMainColor,
                   ),
                 ),
               ],
@@ -104,7 +104,7 @@ class _LoginScreenState extends State<LoginScreen> {
               controller: emailController,
               decoration: InputDecoration(
                 labelText: 'Email or Phone Number',
-                labelStyle: TextStyle(color: AppConstant.appSecondaryColor),
+                labelStyle: TextStyle(color: Colors.grey),
                 filled: true,
                 fillColor: Colors.grey[200],
                 border: OutlineInputBorder(
@@ -122,7 +122,7 @@ class _LoginScreenState extends State<LoginScreen> {
               decoration: InputDecoration(
                 labelText: 'Password',
                 hintText: '8 Characters minimum',
-                hintStyle: TextStyle(color: AppConstant.appSecondaryColor),
+                hintStyle: TextStyle(color: Colors.grey),
                 filled: true,
                 fillColor: Colors.grey[200],
                 border: OutlineInputBorder(
@@ -147,13 +147,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   onPressed: isLoading ? null : _login,
                   child: isLoading
-                      ? CircularProgressIndicator(color: AppConstant.appSecondaryColor)
+                      ? CircularProgressIndicator(color: Colors.white)
                       : Text(
                           'Login',
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
-                            color: AppConstant.appSecondaryColor,
+                            color: Colors.white,
                           ),
                         ),
                 ),

@@ -3,6 +3,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'Header.dart';
 import 'Drawer.dart';
 import 'SingleProduct.dart';
+import 'utils/app-constant.dart';
 
 class HomePage extends StatelessWidget {
   final Function(Map<String, dynamic>) onAddToCart;
@@ -61,7 +62,7 @@ class HomePage extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: Colors.purple,
+                    color: AppConstant.appMainColor,
                   ),
                 ),
               ),
@@ -77,7 +78,7 @@ class HomePage extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: Colors.purple,
+                    color: AppConstant.appMainColor,
                   ),
                 ),
               ),
@@ -111,9 +112,9 @@ class HomePage extends StatelessWidget {
             width: 100, // Ensure consistent width for items
             margin: const EdgeInsets.symmetric(horizontal: 5.0),
             decoration: BoxDecoration(
-              color: Colors.purple.withOpacity(0.1),
+              color: AppConstant.appMainColor.withOpacity(0.1),
               borderRadius: BorderRadius.circular(10),
-              border: Border.all(color: Colors.purple),
+              border: Border.all(color: AppConstant.appMainColor),
             ),
             padding: const EdgeInsets.all(8.0),
             child: Column(
@@ -121,8 +122,8 @@ class HomePage extends StatelessWidget {
               children: [
                 CircleAvatar(
                   radius: 30,
-                  backgroundColor: Colors.purple.withOpacity(0.2),
-                  child: Icon(Icons.category, color: Colors.purple),
+                  backgroundColor: AppConstant.appMainColor.withOpacity(0.2),
+                  child: Icon(Icons.category, color: AppConstant.appMainColor),
                 ),
                 SizedBox(height: 8),
                 Flexible(
@@ -132,7 +133,7 @@ class HomePage extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
-                      color: Colors.purple,
+                      color: AppConstant.appMainColor,
                     ),
                   ),
                 ),
@@ -229,7 +230,7 @@ class HomePage extends StatelessWidget {
                     price,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: Colors.purple,
+                      color: AppConstant.appMainColor,
                     ),
                   ),
                 ],

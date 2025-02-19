@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'Header.dart'; // Import the custom header component
 import 'base_navigation.dart';
+import 'utils/app-constant.dart';
 class CartPage extends StatefulWidget {
   final List<Map<String, dynamic>> cartItems;
 
@@ -67,7 +68,7 @@ class _CartPageState extends State<CartPage> {
                                   );
                                 },
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.purple,
+                                  backgroundColor: AppConstant.appMainColor,
                                   padding: EdgeInsets.symmetric(
                                     horizontal: 32,
                                     vertical: 12,
@@ -143,14 +144,14 @@ class _CartPageState extends State<CartPage> {
                     'PKR ${item['price']}',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: Colors.purple,
+                      color: AppConstant.appMainColor,
                       fontSize: 14,
                     ),
                   ),
                   Row(
                     children: [
                       IconButton(
-                        icon: Icon(Icons.remove, color: Colors.purple),
+                        icon: Icon(Icons.remove, color: AppConstant.appMainColor),
                         onPressed: () {
                           setState(() {
                             if ((item['quantity'] ?? 1) > 1) {
@@ -167,7 +168,7 @@ class _CartPageState extends State<CartPage> {
                         style: TextStyle(fontSize: 16),
                       ),
                       IconButton(
-                        icon: Icon(Icons.add, color: Colors.purple),
+                        icon: Icon(Icons.add, color: AppConstant.appMainColor),
                         onPressed: () {
                           setState(() {
                             item['quantity'] = (item['quantity'] ?? 1) + 1;
@@ -209,7 +210,7 @@ class _CartPageState extends State<CartPage> {
 
     return Container(
       padding: EdgeInsets.symmetric(vertical: 16, horizontal: 16),
-      color: Colors.purple,
+      color: AppConstant.appMainColor,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -237,7 +238,7 @@ class _CartPageState extends State<CartPage> {
           print('Checkout button pressed');
         },
         style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.purple,
+          backgroundColor: AppConstant.appMainColor,
           padding: EdgeInsets.symmetric(vertical: 16),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),

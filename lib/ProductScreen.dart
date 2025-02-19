@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'Drawer.dart'; // Import the drawer component
 import 'Header.dart'; // Import the custom header component
 import 'SingleProduct.dart';
+import 'utils/app-constant.dart';
 class ProductPage extends StatefulWidget {
   final List<Map<String, dynamic>> cartItems;
   final int cartCount;
@@ -96,7 +97,7 @@ class _ProductPageState extends State<ProductPage> {
                         IconButton(
                           icon: Icon(
                             isGridView ? Icons.grid_view : Icons.list,
-                            color: Colors.purple,
+                            color: AppConstant.appMainColor,
                           ),
                           onPressed: () {
                             setState(() {
@@ -168,7 +169,7 @@ class _ProductPageState extends State<ProductPage> {
             trailing: Text(
               product['price'],
               style:
-                  TextStyle(color: Colors.purple, fontWeight: FontWeight.bold),
+                  TextStyle(color: AppConstant.appMainColor, fontWeight: FontWeight.bold),
             ),
           ),
         );
@@ -275,7 +276,7 @@ class _ProductPageState extends State<ProductPage> {
                         price,
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: Colors.purple,
+                          color: AppConstant.appMainColor,
                         ),
                       ),
                       ElevatedButton(
